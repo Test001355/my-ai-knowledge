@@ -13,13 +13,13 @@
   },
   "scripts": {
     "quartz": "./quartz/bootstrap-cli.mjs",
-    "build": "npx quartz plugin install && npx quartz build",
+    "build": "npx quartz build",
     "docs": "npx quartz build --serve -d docs",
     "check": "tsc --noEmit && npx prettier . --check",
     "format": "npx prettier . --write",
     "test": "tsx --test",
     "profile": "0x -D prof ./quartz/bootstrap-cli.mjs build --concurrency=1",
-    "install-plugins": "npx quartz plugin install",
+    "install-plugins": "node -e \"fs.rmSync('.quartz/plugins', { recursive: true, force: true })\" && npx quartz plugin install",
     "prebuild": "npm run install-plugins"
   },
   "engines": {
